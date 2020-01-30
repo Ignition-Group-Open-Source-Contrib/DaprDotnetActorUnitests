@@ -47,16 +47,17 @@ namespace DemoActor
         public async Task SaveData(MyData data)
         {
             Console.WriteLine($"This is Actor id {this.Id} with data {data}.");
-
+            var sayHello = daprWorldService.SayHello();
+            data.PropertyA = sayHello;
             // Set State using StateManager, state is saved after the method execution.
-            await this.StateManager.SetStateAsync<MyData>(StateName, data);
+            await this.actorStateManager.SetStateAsync<MyData>(StateName, data);
         }
 
         /// <inheritdoc/>
         public Task<MyData> GetData()
         {
             // Get state using StateManager.
-            return this.StateManager.GetStateAsync<MyData>(StateName);
+            return this.actorStateManager.GetStateAsync<MyData>(StateName);
         }
 
         /// <inheritdoc/>
@@ -74,13 +75,14 @@ namespace DemoActor
         /// <inheritdoc/>
         public async Task RegisterReminder()
         {
-            this.reminder = await this.RegisterReminderAsync("Test", null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+            
+            this.reminder = await this.remindableWrapper.RegisterReminderAsync("Test", null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
         }
 
         /// <inheritdoc/>
         public Task UnregisterReminder()
         {
-            return this.UnregisterReminderAsync("Test");
+            return this.UnregisterReminderAsync("Test");//TODO 
         }
 
         /// <inheritdoc/>
@@ -93,13 +95,13 @@ namespace DemoActor
         /// <inheritdoc/>
         public Task RegisterTimer()
         {
-            return this.RegisterTimerAsync("Test", this.TimerCallBack, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+            return this.RegisterTimerAsync("Test", this.TimerCallBack, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));//TODO 
         }
 
         /// <inheritdoc/>
         public Task UnregisterTimer()
         {
-            return this.UnregisterTimerAsync("Test");
+            return this.UnregisterTimerAsync("Test");//TODO 
         }
 
         /// <summary>
