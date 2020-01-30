@@ -3,21 +3,21 @@
 // Licensed under the MIT License.
 // ------------------------------------------------------------
 
-namespace DaprDemoActor
-{
-    using System;
-    using System.Threading.Tasks;
-    using Dapr.Actors;
-    using Dapr.Actors.Runtime;
-    using IDemoActorInterface;
+using System;
+using System.Threading.Tasks;
+using Dapr.Actors;
+using Dapr.Actors.Runtime;
+using IDemoActor;
 
+namespace DemoActor
+{
     /// <summary>
     /// Actor Implementation.
     /// Following example shows how to use Actor Reminders as well.
     /// For Actors to use Reminders, it must derive from IRemindable.
     /// If you don't intend to use Reminder feature, you can skip implementing IRemindable and reminder specific methods which are shown in the code below.
     /// </summary>
-    public class DemoActor : Actor, IDemoActor, IRemindable
+    public class DemoActor : Actor, IDemoActor.IDemoActor, IRemindable
     {
         private const string StateName = "my_data";
         private IActorReminder reminder;

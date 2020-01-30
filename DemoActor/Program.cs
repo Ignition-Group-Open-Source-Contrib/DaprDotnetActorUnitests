@@ -3,14 +3,12 @@
 // Licensed under the MIT License.
 // ------------------------------------------------------------
 
+using Dapr.Actors.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace DaprDemoActor
+namespace DemoActor
 {
-    using Dapr.Actors.AspNetCore;
-    using Microsoft.AspNetCore;
-    using Microsoft.AspNetCore.Hosting;
-
     /// <summary>
     /// Class for host.
     /// </summary>
@@ -38,7 +36,7 @@ namespace DaprDemoActor
                     webBuilder.UseStartup<Startup>()
                         .UseActors(actorRuntime =>
                         {
-                            actorRuntime.RegisterActor<DaprDemoActor.DemoActor>();
+                            actorRuntime.RegisterActor<DemoActor>();
                         });
                 });
     }

@@ -3,11 +3,11 @@
 // Licensed under the MIT License.
 // ------------------------------------------------------------
 
-namespace IDemoActorInterface
-{
-    using System.Threading.Tasks;
-    using Dapr.Actors;
+using System.Threading.Tasks;
+using Dapr.Actors;
 
+namespace IDemoActor
+{
     /// <summary>
     /// Interface for Actor method.
     /// </summary>
