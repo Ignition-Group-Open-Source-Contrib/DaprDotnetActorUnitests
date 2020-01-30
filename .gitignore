@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs
+/ActorClient/bin/Debug/netcoreapp3.0
+/ActorClient/obj
+/DemoActor/.vs/DemoActor
+/DemoActor/bin/Debug/netcoreapp3.0
+/DemoActor/obj
+/IDemoActor/bin/Debug/netcoreapp3.0
+/IDemoActor/obj
