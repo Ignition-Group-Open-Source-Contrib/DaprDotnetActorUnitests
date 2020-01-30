@@ -14,4 +14,4 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet test --configuration Release
+      run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:excludebyfile="**/Tests.cs" /P:configuration=Release
