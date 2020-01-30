@@ -37,6 +37,7 @@ namespace DemoActor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRouting();
+            //services.AddTransient<IHelloDaprWorld, HelloDaprWorld>(); Need to figer this out
         }
 
         /// <summary>

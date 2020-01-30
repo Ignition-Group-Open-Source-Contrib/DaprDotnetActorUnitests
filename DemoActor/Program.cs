@@ -4,6 +4,7 @@
 // ------------------------------------------------------------
 
 using Dapr.Actors.AspNetCore;
+using Dapr.Actors.Runtime;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -36,7 +37,8 @@ namespace DemoActor
                     webBuilder.UseStartup<Startup>()
                         .UseActors(actorRuntime =>
                         {
-                            actorRuntime.RegisterActor<DemoActor>();
+                            actorRuntime.RegisterActor<DemoActor>(information => 
+                                new ActorService(information, (service, id) => new DemoActor(service,id, new HelloDaprWorld())));
                         });
                 });
     }

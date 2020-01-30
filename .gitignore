@@ -10,3 +10,6 @@
 /DemoActor/obj
 /IDemoActor/bin/Debug/netcoreapp3.0
 /IDemoActor/obj
+/DemoActor.Tests/bin/Debug/netcoreapp3.0
+/DemoActor.Tests/obj
+/DemoActor.Tests/coverage.opencover.xml

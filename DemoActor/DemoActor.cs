@@ -19,17 +19,28 @@ namespace DemoActor
     /// </summary>
     public class DemoActor : Actor, IDemoActor.IDemoActor, IRemindable
     {
+        private readonly IHelloDaprWorld daprWorldService;
         private const string StateName = "my_data";
         private IActorReminder reminder;
+        private readonly IRemindableWrapper remindableWrapper;
+        private readonly IActorStateManager actorStateManager;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoActor"/> class.
         /// </summary>
         /// <param name="service">Actor Service hosting the actor.</param>
         /// <param name="actorId">Actor Id.</param>
-        public DemoActor(ActorService service, ActorId actorId)
+        public DemoActor(ActorService service
+            , ActorId actorId
+            , IHelloDaprWorld daprWorldService
+            , IRemindableWrapper remindableWrapper = null
+            , IActorStateManager actorStateManager = null
+            )
             : base(service, actorId)
         {
+            this.daprWorldService = daprWorldService ?? throw new ArgumentNullException(nameof(daprWorldService));
+            this.remindableWrapper = remindableWrapper ?? new RemindableWrapper(RegisterReminderAsync);
+            this.actorStateManager = actorStateManager ?? this.StateManager; ;
         }
 
         /// <inheritdoc/>
