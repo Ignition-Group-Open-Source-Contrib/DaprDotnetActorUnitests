@@ -36,11 +36,10 @@ namespace DemoActor
             , IRemindableWrapper remindableWrapper = null
             , IActorStateManager actorStateManager = null
             )
-            : base(service, actorId)
+            : base(service, actorId, actorStateManager)
         {
             this.daprWorldService = daprWorldService ?? throw new ArgumentNullException(nameof(daprWorldService));
             this.remindableWrapper = remindableWrapper ?? new RemindableWrapper(RegisterReminderAsync);
-            this.actorStateManager = actorStateManager ?? this.StateManager; ;
         }
 
         /// <inheritdoc/>

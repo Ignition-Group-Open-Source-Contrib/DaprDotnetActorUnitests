@@ -13,3 +13,7 @@
 /DemoActor.Tests/bin/Debug/netcoreapp3.0
 /DemoActor.Tests/obj
 /DemoActor.Tests/coverage.opencover.xml
+/ActorClient/bin/Debug/netcoreapp3.1
+/DemoActor/bin/Debug/netcoreapp3.1
+/DemoActor.Tests/bin/Debug/netcoreapp3.1
+/IDemoActor/bin/Debug/netcoreapp3.1
